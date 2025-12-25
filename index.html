@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Merry Christmas ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Floating Hearts -->
+  <div class="hearts"></div>
+
+  <!-- Music Button -->
+  <button id="music-btn">Tap to start music 💖🎵</button>
+
+  <!-- Audio (LOCAL MP3 – GitHub Safe) -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1>Merry Christmas, my love 🎄❤️</h1>
+    <p id="typing-text"></p>
+  </div>
+
+  <!-- Surprise Screen -->
+  <div id="surprise" class="surprise">
+    <h1>You are my forever ❤️</h1>
+    <p>I choose you today, tomorrow, and always 💍✨</p>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    /* Typing Effect */
+    const text = `Merry Christmas, my love 🎄❤️
+
+This Christmas feels extra special because I have you in my life.
+You are my favorite gift, my biggest blessing, and the reason my days feel warmer even in winter. 💖✨
+
+Thank you for filling my life with love, laughter, and happiness.
+I hope this Christmas brings you as much joy as you bring into my heart every single day. 💫🎁
+
+I love you more than words can ever say. 🫶❤️
+
+For My love 💕, Mah Babyy❤️, Meri Jaan 🌸💖`;
+
+    let i = 0;
+    const speed = 40;
+
+    function typeEffect() {
+      if (i < text.length) {
+        document.getElementById("typing-text").innerHTML +=
+          text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
+        i++;
+        setTimeout(typeEffect, speed);
+      }
+    }
+    typeEffect();
+
+    /* Music Play (GitHub Pages Safe) */
+    const musicBtn = document.getElementById("music-btn");
+    const music = document.getElementById("bg-music");
+
+    musicBtn.addEventListener("click", () => {
+      music.volume = 1.0;
+      music.currentTime = 0;
+      music.play().catch(err => console.log(err));
+      musicBtn.style.display = "none";
+    });
+
+    /* Surprise Screen */
+    setTimeout(() => {
+      document.getElementById("surprise").style.opacity = "1";
+    }, 25000);
+  </script>
+
+</body>
+</html>
